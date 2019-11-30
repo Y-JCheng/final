@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <title>Yun-Jen (William) Cheng</title>
+</head>
+
+<body>
+    <div class="jump"><a href="#projectsView">Jump to content</a></div>
+    <div class="container">
+        <header></header>
+        <div class="name">
+            <a href="index.html">
+                <h1> Yun-Jen </h1>
+                <h2> (William) </h2>
+                <h1> Cheng</h1>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Projects</a></li>
+                <li class="seperator"><a> | </a></li>
+                <li><a href="photography.html">Photography</a></li>
+                <li class="seperator"><a> | </a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+            </ul>
+        </nav>
+        <div class="projectsView" id="projectsView" role="main">
+            <div class="picdiv">
+                <a href="umove.html">
+                    <img class="projectsPic" src="image/umove.jpg" alt="UMove for newbies">
+                    <p class="caption">A website for new-coming UM students to find there dream home</p>
+                </a>
+            </div>
+            <div class="picdiv">
+                <a href="lightbox_classification.html">
+                    <img class="projectsPic" src="image/lightbox_classification.jpg" alt="Lightbox Classification">
+                    <p class="caption">The first user-centered photobook classification system in Asia</p>
+                </a>
+            </div>
+            <div class="picdiv">
+                <a href="lsi_intranet.html">
+                    <img class="projectsPic" src="image/lsi_intranet.jpg" alt="UMLSI Intranet">
+                    <p class="caption">A research project for UM Life Science Institute's intranet system</p>
+                </a>
+            </div>
+            <a class="previous" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div class="projectsName">
+            <ul>
+                <li><a class="Name" href="umove.html" onmouseover="currentSlide(1)" onfocus="currentSlide(1)">UMove for
+                        newbies</a></li>
+                <li><a class="Name" href="lightbox_classification.html" onmouseover="currentSlide(2)"
+                        onfocus="currentSlide(2)">Lightbox Classification</a></li>
+                <li><a class="Name" href="lsi_intranet.html" onmouseover="currentSlide(3)"
+                        onfocus="currentSlide(3)">UMLSI Intranet</a></li>
+            </ul>
+        </div>
+        <footer>
+            <div class="footnav">
+                <ul>
+                    <li><a href="index.html">Projects</a></li>
+                    <li class="seperator"><a> | </a></li>
+                    <li><a href="photography.html">Photography</a></li>
+                    <li class="seperator"><a> | </a></li>
+                    <li><a href="aboutme.html">About Me</a></li>
+                </ul>
+            </div>
+            <div id="socialnetwork">
+                <a href="https://www.linkedin.com/in/YJ-Cheng" target="_blank"><img src="image/linkedin.png"
+                        alt="link to my linkedin profile"></a>
+                <a href="https://www.researchgate.net/profile/Yun_Jen_Cheng" target="_blank"><img
+                        src="image/researchgate.png" alt="link to my researchgate profile"></a>
+                <a href="mailto:yhcheng@umich.edu" target="_blank"><img src="image/mail.png" alt="send me a mail"></a>
+                <br><br><small>Designed and hand-coded by Yun-Jen Cheng © 2019</small><br><br>
+            </div>
+            <script src="js/javascript.js"></script>
+            <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $("nav ul li:first-of-type a").css("color", "#28536B")
+                })
+            </script>
+        </footer>
+    </div>
+</body>
+</html>
