@@ -2,83 +2,103 @@
     "nodes": [
         {
             "id": 1,
-            "name": "A"
+            "name": "A",
+            "color": "#1A535C"
         },
         {
             "id": 2,
-            "name": "B"
+            "name": "B",
+            "color": "#1A535C"
         },
         {
             "id": 3,
-            "name": "C"
+            "name": "C",
+            "color": "#1A535C"
         },
         {
             "id": 4,
-            "name": "D"
+            "name": "D",
+            "color": "#1A535C"
         },
         {
             "id": 5,
-            "name": "E"
+            "name": "E",
+            "color": "#FF6B6B"
         },
         {
             "id": 6,
-            "name": "F"
+            "name": "F",
+            "color": "#FF6B6B"
         },
         {
             "id": 7,
-            "name": "G"
+            "name": "G",
+            "color": "#FF6B6B"
         },
         {
             "id": 8,
-            "name": "H"
+            "name": "H",
+            "color": "#FF6B6B"
         },
         {
             "id": 9,
-            "name": "I"
+            "name": "I",
+            "color": "#FF6B6B"
         },
         {
             "id": 10,
-            "name": "J"
+            "name": "J",
+            "color": "#FFE66D"
         },
         {
             "id": 11,
-            "name": "K"
+            "name": "K",
+            "color": "#FFE66D"
         },
         {
             "id": 12,
-            "name": "L"
+            "name": "L",
+            "color": "#FFE66D"
         },
         {
             "id": 13,
-            "name": "M"
+            "name": "M",
+            "color": "#FFE66D"
         },
         {
             "id": 14,
-            "name": "N"
+            "name": "N",
+            "color": "#FFE66D"
         },
         {
             "id": 15,
-            "name": "O"
+            "name": "O",
+            "color": "#4ECDC4"
         },
         {
             "id": 16,
-            "name": "P"
+            "name": "P",
+            "color": "#4ECDC4"
         },
         {
             "id": 17,
-            "name": "Q"
+            "name": "Q",
+            "color": "#4ECDC4"
         },
         {
             "id": 18,
-            "name": "R"
+            "name": "R",
+            "color": "#4ECDC4"
         },
         {
             "id": 19,
-            "name": "S"
+            "name": "S",
+            "color": "#4ECDC4"
         },
         {
             "id": 20,
-            "name": "T"
+            "name": "T",
+            "color": "#4ECDC4"
         }
     ],
     "links": [

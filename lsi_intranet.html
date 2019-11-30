@@ -45,7 +45,7 @@
                     // set the dimensions and margins of the graph
                     var margin = 10,
                         width = document.getElementById("my_dataviz").offsetWidth - margin - margin,
-                        height = width;
+                        height = width / 2;
 
                     // append the svg object to the body of the page
                     var svg = d3.select("#my_dataviz")
@@ -73,7 +73,7 @@
                             .enter()
                             .append("circle")
                             .attr("r", 10)
-                            .style("fill", "#69b3a2")
+                            .style("fill", data.nodes.color)
 
                         // Let's list the force we wanna apply on the network
                         var simulation = d3.forceSimulation(data.nodes)                 // Force algorithm is applied to data.nodes
@@ -81,7 +81,7 @@
                                 .id(function (d) { return d.id; })                     // This provide the id of a node
                                 .links(data.links)                                    // and this the list of links
                             )
-                            .force("charge", d3.forceManyBody().strength(-40))         // This adds repulsion between nodes. Play with the -400 for the repulsion strength
+                            .force("charge", d3.forceManyBody().strength(-30))         // This adds repulsion between nodes. Play with the -400 for the repulsion strength
                             .force("center", d3.forceCenter(width / 2, height / 2))     // This force attracts nodes to the center of the svg area
                             .on("end", ticked);
 
