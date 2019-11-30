@@ -3,102 +3,102 @@
         {
             "id": 1,
             "name": "A",
-            "color": "#1A535C"
+            "colour": "#1A535C"
         },
         {
             "id": 2,
             "name": "B",
-            "color": "#1A535C"
+            "colour": "#1A535C"
         },
         {
             "id": 3,
             "name": "C",
-            "color": "#1A535C"
+            "colour": "#1A535C"
         },
         {
             "id": 4,
             "name": "D",
-            "color": "#1A535C"
+            "colour": "#1A535C"
         },
         {
             "id": 5,
             "name": "E",
-            "color": "#FF6B6B"
+            "colour": "#FF6B6B"
         },
         {
             "id": 6,
             "name": "F",
-            "color": "#FF6B6B"
+            "colour": "#FF6B6B"
         },
         {
             "id": 7,
             "name": "G",
-            "color": "#FF6B6B"
+            "colour": "#FF6B6B"
         },
         {
             "id": 8,
             "name": "H",
-            "color": "#FF6B6B"
+            "colour": "#FF6B6B"
         },
         {
             "id": 9,
             "name": "I",
-            "color": "#FF6B6B"
+            "colour": "#FF6B6B"
         },
         {
             "id": 10,
             "name": "J",
-            "color": "#FFE66D"
+            "colour": "#FFE66D"
         },
         {
             "id": 11,
             "name": "K",
-            "color": "#FFE66D"
+            "colour": "#FFE66D"
         },
         {
             "id": 12,
             "name": "L",
-            "color": "#FFE66D"
+            "colour": "#FFE66D"
         },
         {
             "id": 13,
             "name": "M",
-            "color": "#FFE66D"
+            "colour": "#FFE66D"
         },
         {
             "id": 14,
             "name": "N",
-            "color": "#FFE66D"
+            "colour": "#FFE66D"
         },
         {
             "id": 15,
             "name": "O",
-            "color": "#4ECDC4"
+            "colour": "#4ECDC4"
         },
         {
             "id": 16,
             "name": "P",
-            "color": "#4ECDC4"
+            "colour": "#4ECDC4"
         },
         {
             "id": 17,
             "name": "Q",
-            "color": "#4ECDC4"
+            "colour": "#4ECDC4"
         },
         {
             "id": 18,
             "name": "R",
-            "color": "#4ECDC4"
+            "colour": "#4ECDC4"
         },
         {
             "id": 19,
             "name": "S",
-            "color": "#4ECDC4"
+            "colour": "#4ECDC4"
         },
         {
             "id": 20,
             "name": "T",
-            "color": "#4ECDC4"
+            "colour": "#4ECDC4"
         }
     ],
     "links": [

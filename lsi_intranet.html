@@ -73,7 +73,7 @@
                             .enter()
                             .append("circle")
                             .attr("r", 10)
-                            .style("fill", function(d) { return d.color })
+                            .style("fill", function(d) { return d.colour; })
 
                         // Let's list the force we wanna apply on the network
                         var simulation = d3.forceSimulation(data.nodes)                 // Force algorithm is applied to data.nodes
