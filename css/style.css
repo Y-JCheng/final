@@ -600,6 +600,10 @@ input[type=submit]:hover {
     background-color: rgba(82, 164, 179, 0.1);
 }
 
+.showing{
+    background-color: rgba(82, 164, 179, 0.5);
+}
+
 .SNAbuttoncontainer{
 text-align: center;
 }

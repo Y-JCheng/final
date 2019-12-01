@@ -50,6 +50,9 @@
                 <script>
                     function readfile(filename) {
 
+                        document.getElementsByClassName(SNAbutton).className.replace(" showing", "");
+                        document.getElementById(filename).className += " showing";
+
                         // Clear svg
                         document.getElementById("SNA").innerHTML = "";
 
@@ -66,6 +69,7 @@
                             .attr("transform",
                                 "translate(" + margin + "," + margin + ")");
 
+                        //read json
                         d3.json("data/" + filename + ".json", function (data) {
 
                             // Initialize the links
