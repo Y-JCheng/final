@@ -46,6 +46,10 @@
 
                 <script>
                     function readfile(filename) {
+
+                        if (document.getElementById("SNA").innerHTML != ""){
+                            document.getElementById("SNA").innerHTML = "";
+                        }
                         // set the dimensions and margins of the graph
                         var margin = 10,
                             width = document.getElementById("SNA").offsetWidth - margin - margin,
