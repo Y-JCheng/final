@@ -41,22 +41,23 @@
             <div class="abouts">
                 <div id="SNA"></div>
                 <div class="SNAbuttoncontainer">
-                <div id="plural" class="SNAbutton" onclick="readfile(this.id)">Plural-worlds</div>
-                <div id="smallworld" class="SNAbutton" onclick="readfile(this.id)">Small-world</div>
-                <div id="structural_cohesion" class="SNAbutton" onclick="readfile(this.id)">Structural cohesion</div>
-                <div id="star" class="SNAbutton" onclick="readfile(this.id)">Star production model</div>
-            </div>
+                    <div id="plural" class="SNAbutton" onclick="readfile(this.id)">Plural-worlds</div>
+                    <div id="smallworld" class="SNAbutton" onclick="readfile(this.id)">Small-world</div>
+                    <div id="structural_cohesion" class="SNAbutton" onclick="readfile(this.id)">Structural cohesion
+                    </div>
+                    <div id="star" class="SNAbutton" onclick="readfile(this.id)">Star production model</div>
+                </div>
                 <script>
                     function readfile(filename) {
 
-                            document.getElementById("SNA").innerHTML = "";
+                        // Clear svg
+                        document.getElementById("SNA").innerHTML = "";
 
-                            // set the dimensions and margins of the graph
                         var margin = 10,
                             width = document.getElementById("SNA").offsetWidth - margin - margin,
                             height = width / 2;
 
-                        // append the svg object to the body of the page
+                        // Set svg
                         var svg = d3.select("#SNA")
                             .append("svg")
                             .attr("width", width + margin + margin)
@@ -84,17 +85,17 @@
                                 .attr("r", 10)
                                 .style("fill", function (d) { return d.colour; })
 
-                            // Let's list the force we wanna apply on the network
-                            var simulation = d3.forceSimulation(data.nodes)                 // Force algorithm is applied to data.nodes
-                                .force("link", d3.forceLink()                               // This force provides links between nodes
-                                    .id(function (d) { return d.id; })                     // This provide the id of a node
-                                    .links(data.links)                                    // and this the list of links
+                            // Arrange forces
+                            var simulation = d3.forceSimulation(data.nodes)
+                                .force("link", d3.forceLink()
+                                    .id(function (d) { return d.id; })
+                                    .links(data.links)
                                 )
-                                .force("charge", d3.forceManyBody().strength(-30))         // This adds repulsion between nodes. Play with the -400 for the repulsion strength
-                                .force("center", d3.forceCenter(width / 2, height / 2))     // This force attracts nodes to the center of the svg area
+                                .force("charge", d3.forceManyBody().strength(-30))
+                                .force("center", d3.forceCenter(width / 2, height / 2))
                                 .on("tick", ticking);
 
-                            // This function is run at each iteration of the force algorithm, updating the nodes position.
+                            // Update position
                             function ticking() {
                                 link
                                     .attr("x1", function (d) { return d.source.x; })
@@ -106,6 +107,31 @@
                                     .attr("cx", function (d) { return d.x; })
                                     .attr("cy", function (d) { return d.y; });
                             }
+
+                            // Dragging feature
+                            var dragging = d3.drag()
+                                .on("start", drag_start)
+                                .on("drag", drag_drag)
+                                .on("end", drag_end);
+
+                            function drag_start(d) {
+                                if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+                                d.fx = d.x;
+                                d.fy = d.y;
+                            }
+
+                            function drag_drag(d) {
+                                d.fx = d3.event.x;
+                                d.fy = d3.event.y;
+                            }
+
+                            function drag_end(d) {
+                                if (!d3.event.active) simulation.alphaTarget(0);
+                                d.fx = null;
+                                d.fy = null;
+                            }
+
+                            drag_handler(node)
                         });
                     }
                     document.onload(readfile("plural"))
