@@ -580,8 +580,12 @@ input[type=submit]:hover {
 }
 
 /* CSS for Socail Network Analysis */
-.SNAbutton{
+#SNA{
     border: 2px solid lightgray;
+}
+
+.SNAbutton{
+    border: 2px solid #666666;
     border-radius: 5px;
     width: auto;
     display: inline-block;
@@ -590,6 +594,10 @@ input[type=submit]:hover {
     margin: 5px;
     padding: 10px;
     cursor: pointer;
+}
+
+.SNAbutton:hover{
+    background-color: rgba(82, 164, 179, 0.1);
 }
 
 .SNAbuttoncontainer{
