@@ -50,7 +50,10 @@
                 <script>
                     function readfile(filename) {
 
-                        document.getElementsByClassName("SNAbutton").className.replace(" showing", "");
+                        document.getElementById("plural").className = "SNAbutton";
+                        document.getElementById("smallworld").className = "SNAbutton";
+                        document.getElementById("structural_cohesion").className = "SNAbutton";
+                        document.getElementById("star").className = "SNAbutton";
                         document.getElementById(filename).className += " showing";
 
                         // Clear svg
