@@ -104,10 +104,6 @@
     "links": [
         {
             "source": 10,
-            "target": 11
-        },
-        {
-            "source": 10,
             "target": 1
         },
         {
@@ -121,6 +117,18 @@
         {
             "source": 10,
             "target": 4
+        },
+        {
+            "source": 10,
+            "target": 11
+        },
+        {
+            "source": 10,
+            "target": 12
+        },
+        {
+            "source": 10,
+            "target": 13
         },
         {
             "source": 11,
