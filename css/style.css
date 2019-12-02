@@ -590,12 +590,13 @@ input[type=submit]:hover {
 
 .SNAbutton{
     border: 2px solid #666666;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
+    border-bottom: none;
     width: auto;
     display: inline-block;
     text-align: center;
     font-size: 15px;
-    margin: 5px;
+    margin: 5px 0 0 5px;
     padding: 10px;
     cursor: pointer;
 }
@@ -606,13 +607,27 @@ input[type=submit]:hover {
 }
 
 .showing{
-    background-color: rgba(40, 84, 107, 0.8);
-    border-color: rgba(40, 84, 107, 0.8);
+    background-color: rgba(40, 84, 107);
+    border-color: rgba(40, 84, 107);
     color: white;
 }
 
-.SNAbuttoncontainer{
-text-align: center;
+.SNAinfocontainer{
+    border: 2px solid rgba(40, 84, 107);
+    border-radius: 5px;
+    background: rgba(40, 84, 107);
+}
+
+.SNAinfo{
+    background-color: white;
+    display: none;
+    padding: 5px 20px;
+    margin-top: 20px;
+    border-radius: 0 0 5px 5px;
+}
+
+.showinfo{
+    display: block;
 }
 
 /* CSS for footer */

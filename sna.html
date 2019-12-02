@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
-    <script src="js/javascript.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://d3js.org/d3.v4.js"></script>
     <title>Yun-Jen (William) Cheng</title>
@@ -62,12 +61,19 @@
                 </div>
                 <script>
                     function readfile(filename) {
-
+                        // Color button
                         document.getElementById("plural").className = "SNAbutton";
                         document.getElementById("smallworld").className = "SNAbutton";
                         document.getElementById("structural_cohesion").className = "SNAbutton";
                         document.getElementById("star").className = "SNAbutton";
                         document.getElementById(filename).className += " showing";
+
+                        // Change introduction
+                        document.getElementById("plural_info").className = "SNAinfo";
+                        document.getElementById("smallworld_info").className = "SNAinfo";
+                        document.getElementById("structural_cohesion_info").className = "SNAinfo";
+                        document.getElementById("star_info").className = "SNAinfo";
+                        document.getElementById(filename + "_info").className += " showinfo";
 
                         // Clear svg
                         document.getElementById("SNA").innerHTML = "";
@@ -154,26 +160,55 @@
                             dragging(node)
                         });
                     }
-                    document.onload(readfile("plural"))
-
+                    document.ready(readfile("plural"))
                 </script>
-                <div>
-                    <h3>Plural-worlds</h3>
-                    <p>In this kind of social network, the nodes are clustered in different groups with no link between
-                        the groups. This means that there are no knowledge sharing or collaboration between these
-                        groups.</p>
+                <div class="SNAinfocontainer">
+                    <div id="plural_info" class="SNAinfo">
+                        <h3>Plural-worlds</h3>
+                        <p>In this kind of social network, the nodes are clustered in different groups with no link
+                            between
+                            the groups. This means that there are no knowledge sharing or collaboration between these
+                            groups.</p>
 
-                    <p>Usually, we can find this kind of network on the disciplines that differ from each other
-                        on their theories and methodologies.</p>
-                </div>
-                <div>
-                    <h3>Small-world</h3>
-                    <p>In this kind of social network, the nodes are clustered in different groups but have little links
-                        between the groups. This means that
-                        there are little knowledge sharing or collaboration between these groups. Usually, we can find
-                        this
-                        kind of network on the disciplines that differ from each other on their theories and
-                        methodologies.</p>
+                        <p>Usually, we can find this kind of networks on the disciplines that differ from each other
+                            on their theories and methodologies.</p>
+                    </div>
+                    <div id="smallworld_info" class="SNAinfo">
+                        <h3>Small-world</h3>
+                        <p>In this kind of social network, the nodes are clustered in different groups but have little
+                            links
+                            between the groups. This means that there are little knowledge sharing or collaboration
+                            between
+                            these groups.</p>
+                        <p>Usually, we can find this kind of networks on the early stage of an inter-disciplinary
+                            collaboration, researchers from different backgrounds started to use the knowledge from
+                            other
+                            disciplines or collaborate on researchs.</p>
+                    </div>
+                    <div id="structural_cohesion_info" class="SNAinfo">
+                        <h3>Structural cohesion</h3>
+                        <p>In this kind of social network, the nodes are clustered in different groups but have little
+                            links
+                            between the groups. This means that there are little knowledge sharing or collaboration
+                            between
+                            these groups.</p>
+                        <p>Usually, we can find this kind of networks on the early stage of an inter-disciplinary
+                            collaboration, researchers from different backgrounds started to use the knowledge from
+                            other
+                            disciplines or collaborate on researchs.</p>
+                    </div>
+                    <div id="star_info" class="SNAinfo">
+                        <h3>Star production model</h3>
+                        <p>In this kind of social network, the nodes are clustered in different groups but have little
+                            links
+                            between the groups. This means that there are little knowledge sharing or collaboration
+                            between
+                            these groups.</p>
+                        <p>Usually, we can find this kind of networks on the early stage of an inter-disciplinary
+                            collaboration, researchers from different backgrounds started to use the knowledge from
+                            other
+                            disciplines or collaborate on researchs.</p>
+                    </div>
                 </div>
             </div>
             <div class="skills">
