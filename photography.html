@@ -109,7 +109,6 @@
                 <a href="mailto:yhcheng@umich.edu" target="_blank"><img src="image/mail.png" alt="send me a mail"></a>
                 <br><br><small>Designed and hand-coded by Yun-Jen Cheng © 2019</small><br><br>
             </div>
-            <script src="js/javascript.js"></script>
             <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
             <script>
                 $(document).ready(function () {
@@ -121,7 +120,10 @@
                     $(document).ready(function(){
                         $("nav ul li:nth-of-type(3) a").css("color","#28536B")
                     })
-                    $(document).on("ready resize", function () {
+                    $(window).resize(picHeight);
+                    $(".gallery_container").on("load", picHeight());
+                    
+                    function picHeight() {
                         var newHeightr2 = $(".picbox02").height();
                         var newHeightr3 = $(".picbox04").height();
                         var newHeightr4 = $(".picbox07").height();
@@ -132,7 +134,7 @@
                         $(".picbox08").height(newHeightr4);
                         $(".picbox09").height(newHeightr5);
                         $(".picbox15").height(newHeightr6);
-                    })
+                    }
             
                     $(function () {
                         $("#gotop").click(function () {
