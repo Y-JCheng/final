@@ -98,4 +98,4 @@ function readfile(filename) {
         dragging(node)
     });
 }
-document.ready(readfile("plural"))
+$(document).ready(readfile("plural"))
