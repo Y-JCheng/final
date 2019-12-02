@@ -587,6 +587,8 @@ input[type=submit]:hover {
 #SNA{
     border: 2px solid lightgray;
     border-radius: 5px;
+    background-color: white;
+    margin: 10px;
 }
 
 .SNAbutton{
@@ -623,7 +625,6 @@ input[type=submit]:hover {
     background-color: white;
     display: none;
     padding: 5px 20px;
-    margin-top: 20px;
     border-radius: 0 0 5px 5px;
 }
 
