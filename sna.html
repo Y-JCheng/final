@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <script src="js/javascript.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <title>Yun-Jen (William) Cheng</title>
+</head>
+
+<body>
+    <div class="jump"><a href="#SNATitle">Jump to content</a></div>
+    <div class="container">
+        <header></header>
+        <div class="name">
+            <a href="index.html">
+                <h1> Yun-Jen </h1>
+                <h2> (William) </h2>
+                <h1> Cheng</h1>
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Projects</a></li>
+                <li class="seperator"><a> | </a></li>
+                <li><a href="photography.html">Photography</a></li>
+                <li class="seperator"><a> | </a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+            </ul>
+        </nav>
+        <div class="projecttitle" id="SNATitle" role="main">
+            <h3>Network Topology for Disciplinary Research</h3>
+            <h3 class="saymore">A Brief Introduction for Applying Social Network Analysis on Intellectual Cohesion</h3>
+        </div>
+        <div class="content">
+            <div class="abouts">
+                <h3>Introduction</h3>
+                <p>My MA study in Taiwan focused on Social Network Analysis (SNA): a way to analyze and visualize ties
+                    between individuals in communities. I adopted it as the primary tactic in my longitudinal research
+                    on Digital Humanities, a relatively new discipline. In the research, I focus more on how the
+                    discipline adopts methodology and knowledge from existing disciplines, also on how researchers
+                    collaborate. In this page, I'll brief introduce four models in SNA from the method I adopted to
+                    recognize collaborative patterns with network topology.<br></p>
+                <h3>How to read the networks</h3>
+                <p>When using SNA to analyze inter-disciplinary research, we usually use authors, Articles and Journals
+                    as the nodes, and the co-author, co-citation, co-cited as the links. Co-author network (How many
+                    times the authors working together on articles) can visualize the collaborative patterns;
+                    Co-citation and the co-cited networks (How many references the articles sharing, and how many times
+                    the articles are cited by the same article) can show the flow of the knowledge.</p>
+                <br>
+                <div id="SNA"></div>
+                <div class="SNAbuttoncontainer">
+                    <div id="plural" class="SNAbutton" onclick="readfile(this.id)">Plural-worlds</div>
+                    <div id="smallworld" class="SNAbutton" onclick="readfile(this.id)">Small-world</div>
+                    <div id="structural_cohesion" class="SNAbutton" onclick="readfile(this.id)">Structural cohesion
+                    </div>
+                    <div id="star" class="SNAbutton" onclick="readfile(this.id)">Star production model</div>
+                </div>
+                <script>
+                    function readfile(filename) {
+
+                        document.getElementById("plural").className = "SNAbutton";
+                        document.getElementById("smallworld").className = "SNAbutton";
+                        document.getElementById("structural_cohesion").className = "SNAbutton";
+                        document.getElementById("star").className = "SNAbutton";
+                        document.getElementById(filename).className += " showing";
+
+                        // Clear svg
+                        document.getElementById("SNA").innerHTML = "";
+
+                        var margin = 10,
+                            width = document.getElementById("SNA").offsetWidth - margin - margin,
+                            height = width / 2;
+
+                        // Set svg
+                        var svg = d3.select("#SNA")
+                            .append("svg")
+                            .attr("width", width + margin + margin)
+                            .attr("height", height + margin + margin)
+                            .append("g")
+                            .attr("transform",
+                                "translate(" + margin + "," + margin + ")");
+
+                        //read json
+                        d3.json("data/" + filename + ".json", function (data) {
+
+                            // Initialize the links
+                            var link = svg
+                                .selectAll("line")
+                                .data(data.links)
+                                .enter()
+                                .append("line")
+                                .style("stroke", "#aaa")
+
+                            // Initialize the nodes
+                            var node = svg
+                                .selectAll("circle")
+                                .data(data.nodes)
+                                .enter()
+                                .append("circle")
+                                .attr("r", 10)
+                                .style("fill", function (d) { return d.colour; })
+
+                            // Arrange forces
+                            var simulation = d3.forceSimulation(data.nodes)
+                                .force("link", d3.forceLink()
+                                    .id(function (d) { return d.id; })
+                                    .links(data.links)
+                                )
+                                .force("charge", d3.forceManyBody().strength(-30))
+                                .force("center", d3.forceCenter(width / 2, height / 2))
+                                .on("tick", ticking);
+
+                            // Update position
+                            function ticking() {
+                                link
+                                    .attr("x1", function (d) { return d.source.x; })
+                                    .attr("y1", function (d) { return d.source.y; })
+                                    .attr("x2", function (d) { return d.target.x; })
+                                    .attr("y2", function (d) { return d.target.y; });
+
+                                node
+                                    .attr("cx", function (d) { return d.x; })
+                                    .attr("cy", function (d) { return d.y; });
+                            }
+
+                            // Dragging feature
+                            var dragging = d3.drag()
+                                .on("start", drag_start)
+                                .on("drag", drag_drag)
+                                .on("end", drag_end);
+
+                            function drag_start(d) {
+                                if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+                                d.fx = d.x;
+                                d.fy = d.y;
+                            }
+
+                            function drag_drag(d) {
+                                d.fx = d3.event.x;
+                                d.fy = d3.event.y;
+                            }
+
+                            function drag_end(d) {
+                                if (!d3.event.active) simulation.alphaTarget(0);
+                                d.fx = null;
+                                d.fy = null;
+                            }
+
+                            dragging(node)
+                        });
+                    }
+                    document.onload(readfile("plural"))
+
+                </script>
+                <div>
+                    <h3>Plural-worlds</h3>
+                    <p>In this kind of social network, the nodes are clustered in different groups with no link between
+                        the groups. This means that there are no knowledge sharing or collaboration between these
+                        groups.</p>
+
+                    <p>Usually, we can find this kind of network on the disciplines that differ from each other
+                        on their theories and methodologies.</p>
+                </div>
+                <div>
+                    <h3>Small-world</h3>
+                    <p>In this kind of social network, the nodes are clustered in different groups but have little links
+                        between the groups. This means that
+                        there are little knowledge sharing or collaboration between these groups. Usually, we can find
+                        this
+                        kind of network on the disciplines that differ from each other on their theories and
+                        methodologies.</p>
+                </div>
+            </div>
+            <div class="skills">
+                <h3>Role in Project</h3>
+                <p>Researcher, Developer</p>
+                <h3>Researching</h3>
+                <p>Bibliometrics, Social Network Analysis</p>
+                <h3>Design</h3>
+                <p>HTML, CSS, Javascript</p>
+            </div>
+        </div>
+        <footer>
+            <div class="footnav">
+                <ul>
+                    <li><a href="index.html">Projects</a></li>
+                    <li class="seperator"><a> | </a></li>
+                    <li><a href="photography.html">Photography</a></li>
+                    <li class="seperator"><a> | </a></li>
+                    <li><a href="aboutme.html">About Me</a></li>
+                </ul>
+            </div>
+            <div id="socialnetwork">
+                <a href="https://www.linkedin.com/in/YJ-Cheng" target="_blank"><img src="image/linkedin.png"
+                        alt="link to my linkedin profile"></a>
+                <a href="https://www.researchgate.net/profile/Yun_Jen_Cheng" target="_blank"><img
+                        src="image/researchgate.png" alt="link to my researchgate profile"></a>
+                <a href="mailto:yhcheng@umich.edu" target="_blank"><img src="image/mail.png" alt="send me a mail"></a>
+                <br><br><small>Designed and hand-coded by Yun-Jen Cheng © 2019</small><br><br>
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $("nav ul li:first-of-type a").css("color", "#28536B")
+                })
+            </script>
+        </footer>
+    </div>
+</body>
+
+</html>

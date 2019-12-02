@@ -521,6 +521,10 @@ input[type=submit]:hover {
     background-image: linear-gradient(rgba(0, 0, 0, 0.726), rgba(0, 0, 0, 0.609)),url("../image/lsi_intranet.jpg");
 }
 
+#SNATitle{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.726), rgba(0, 0, 0, 0.609)),url("../image/SNA.jpg");
+}
+
 .projecttitle h3{
     color: white;
     padding: 0 10%;
@@ -598,10 +602,13 @@ input[type=submit]:hover {
 
 .SNAbutton:hover{
     background-color: rgba(82, 164, 179, 0.1);
+    color: #5E5E5E;
 }
 
 .showing{
-    background-color: rgba(82, 164, 179, 0.5);
+    background-color: rgba(40, 84, 107, 0.8);
+    border-color: rgba(40, 84, 107, 0.8);
+    color: white;
 }
 
 .SNAbuttoncontainer{
