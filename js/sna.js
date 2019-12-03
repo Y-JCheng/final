@@ -25,9 +25,9 @@ function readfile(filename) {
         .append("svg")
         .attr("width", width + margin + margin)
         .attr("height", height + margin + margin)
-
-    var g = svg.append("g")
-            .attr("class", "everything")
+        .append("g")
+        .attr("transform",
+            "translate(" + margin + "," + margin + ")");
 
     //read json
     d3.json("data/" + filename + ".json", function (data) {
@@ -54,8 +54,9 @@ function readfile(filename) {
             .force("link", d3.forceLink()
                 .id(function (d) { return d.id; })
                 .links(data.links)
-            )
-            .force("charge", d3.forceManyBody().strength(-20))
+                )
+            .force("charge", d3.forceManyBody().strength(-10))
+            .force.gravity(.08)
             .force("center", d3.forceCenter(width / 2, height / 2))
             .on("tick", ticking);
 
@@ -96,17 +97,6 @@ function readfile(filename) {
         }
 
         dragging(node)
-
-        // Zooming feature
-        var zooming = d3.zoom()
-            .on("zoom", zoom_actions);
-
-        function zoom_actions() {
-            g.attr("transform", d3.event.transform)
-
-        }
-
-        zooming(svg); 
     });
 }
 $(document).ready(readfile("plural"))
