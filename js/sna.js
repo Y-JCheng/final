@@ -27,7 +27,6 @@ function readfile(filename) {
         .attr("height", height + margin + margin)
 
     var g = svg.append("g")
-            .attr("transform", "translate(" + margin + "," + margin + ")")
             .attr("class", "everything")
 
     //read json
