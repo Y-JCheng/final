@@ -55,7 +55,7 @@ function readfile(filename) {
                 .id(function (d) { return d.id; })
                 .links(data.links)
             )
-            .force("charge", d3.forceManyBody().strength(-30))
+            .force("charge", d3.forceManyBody().strength(-20))
             .force("center", d3.forceCenter(width / 2, height / 2))
             .on("tick", ticking);
 
@@ -96,6 +96,16 @@ function readfile(filename) {
         }
 
         dragging(node)
+
+        // Zooming feature
+        var zooming = d3.zoom()
+            .on("zoom", zoom_actions);
+
+        function zoom_actions() {
+            g.attr("transform", d3.event.transform)
+        }
+
+        zooming(svg); 
     });
 }
 $(document).ready(readfile("plural"))
