@@ -25,9 +25,10 @@ function readfile(filename) {
         .append("svg")
         .attr("width", width + margin + margin)
         .attr("height", height + margin + margin)
-        .append("g")
-        .attr("transform",
-            "translate(" + margin + "," + margin + ")");
+
+    var g = svg.append("g")
+            .attr("transform", "translate(" + margin + "," + margin + ")")
+            .attr("class", "everything")
 
     //read json
     d3.json("data/" + filename + ".json", function (data) {
@@ -103,6 +104,7 @@ function readfile(filename) {
 
         function zoom_actions() {
             g.attr("transform", d3.event.transform)
+
         }
 
         zooming(svg); 
