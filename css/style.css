@@ -668,6 +668,20 @@ footer{
     background-color: #28536B;
 }
 
+@media screen and (max-width:1100px){
+    .SNAbutton{
+        border: 2px solid #666666;
+        border-radius: 5px;
+        width: auto;
+        display: block;
+        text-align: center;
+        font-size: 15px;
+        margin: 10px 0 10px 5px;
+        padding: 10px;
+        cursor: pointer;
+    }
+}
+
 @media screen and (max-width:800px){
     .container{
         grid-template-rows: 10px auto auto auto auto auto auto auto;

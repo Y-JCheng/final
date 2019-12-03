@@ -13,6 +13,15 @@ function readfile(filename) {
     document.getElementById("star_info").className = "SNAinfo";
     document.getElementById(filename + "_info").className += " showinfo";
 
+    // Detect screen width
+    var radiusVal = 10,
+        strengthVal = -20;
+    
+    if (window.innerWidth <= 900) {
+        radiusVal = 5
+        strengthVal = -10;
+    }
+
     // Clear svg
     document.getElementById("SNA").innerHTML = "";
 
@@ -46,7 +55,7 @@ function readfile(filename) {
             .data(data.nodes)
             .enter()
             .append("circle")
-            .attr("r", 10)
+            .attr("r", radiusVal)
             .style("fill", function (d) { return d.colour; })
 
         // Arrange forces
@@ -55,7 +64,7 @@ function readfile(filename) {
                 .id(function (d) { return d.id; })
                 .links(data.links)
                 )
-            .force("charge", d3.forceManyBody().strength(-20))
+            .force("charge", d3.forceManyBody().strength(strengthVal))
             .force("center", d3.forceCenter(width / 2, height / 2))
             .on("tick", ticking);
 
