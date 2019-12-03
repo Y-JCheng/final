@@ -56,7 +56,6 @@ function readfile(filename) {
                 .links(data.links)
                 )
             .force("charge", d3.forceManyBody().strength(-10))
-            .force.gravity(.08)
             .force("center", d3.forceCenter(width / 2, height / 2))
             .on("tick", ticking);
 
