@@ -13,13 +13,13 @@ function readfile(filename) {
     document.getElementById("star_info").className = "SNAinfo";
     document.getElementById(filename + "_info").className += " showinfo";
 
-    // Detect screen width
+    // Detect screen width for node size and arrangement
     var radiusVal = 10,
-        strengthVal = -20;
+        strengthVal = -30;
     
     if (window.innerWidth <= 900) {
-        radiusVal = 5
-        strengthVal = -10;
+        radiusVal = 8
+        strengthVal = -12;
     }
 
     // Clear svg
